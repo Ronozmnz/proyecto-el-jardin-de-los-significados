@@ -1,0 +1,492 @@
+@font-face {
+    font-family: 'RobotoSlab';
+    src: url('../assets/fonts/RobotoSlab-VariableFont_wght.ttf') format('truetype');
+    font-weight: 100 900; /* Define el rango de pesos disponibles en la fuente variable */
+    font-style: normal;
+}
+
+:root {
+    --color-fondo: #fdfbf7;
+    --color-texto: #333;
+    --color-accent: #0e412f; /* Tono naturaleza */
+    --glass: rgba(255, 255, 255, 0.2);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'RobotoSlab', serif;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../img/fondo-general-web.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    line-height: 1.6;
+    color: white; /* Se ajusta el color del texto para que contraste con el fondo */
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1;
+}
+
+.footer-container {
+    display: flex;
+    flex-direction: column; /* Apila el texto y los iconos verticalmente */
+    justify-content: center; /* Centra el contenido verticalmente */
+    align-items: center; /* Centra el contenido horizontalmente */
+    padding: 20px;
+    background-color: var(--color-accent);
+    color: white;
+    margin-top: 40px;
+    gap: 15px; /* Espacio entre el texto y los iconos */
+}
+
+.social-icons-container {
+    display: flex;
+    gap: 15px; /* Espacio entre los iconos de redes sociales */
+}
+
+.social-icon {
+    width: 30px; /* Tamaño de los iconos */
+    height: 30px;
+    object-fit: contain; /* Asegura que la imagen se ajuste sin distorsionarse */
+    transition: transform 0.3s ease; /* Suaviza la animación */
+}
+
+.social-icon:hover {
+    transform: scale(1.2); /* Agranda el icono un 20% al pasar el ratón */
+}
+
+.header-main {
+    display: flex;
+    flex-direction: column; /* Apila el logo sobre el menú de navegación */
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    background-color: var(--color-accent);
+    gap: 15px; /* Espacio entre el logo y los enlaces */
+}
+
+.nav-container {
+    width: 100%;
+    display: flex;
+    justify-content: center; /* Centra la lista de enlaces dentro de su contenedor */
+}
+
+.logo-image {
+    height: 120px; /* Ajusta este valor según qué tan pequeño lo desees */
+    width: auto;
+    display: block;
+    border: 1px solid white; /* Borde de color claro */
+    background-color: rgb(255, 255, 255); /* Fondo blanco para resaltar la imagen */
+    padding: 5px; /* Espacio entre la imagen y el borde */
+    border-radius: 20px; /* Redondea las esquinas del borde */
+}
+
+.nav-list {
+    display: flex;
+    list-style: none;
+    gap: 35px;
+}   
+
+.nav-list a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease; /* Suaviza la transición del color */
+}
+
+.nav-list a:hover {
+    color: #f0f0f0; /* Un tono crema claro para el efecto hover */
+}
+
+.catalog-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.flower-card {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 15px;
+    overflow: hidden;
+    color: #333;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    position: relative; /* Permite que el z-index funcione correctamente al elevarse */
+    flex-direction: column;
+    animation: fadeInCard 0.6s ease-out; /* Quitamos forwards */
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.flower-card:hover {
+    transform: translateY(-15px) scale(1.02); /* Se eleva 15px y crece un 2% */
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.45); /* Sombra más profunda para simular altura */
+    z-index: 10; /* Asegura que la tarjeta no quede detrás de otras al subir */
+    cursor: pointer;
+}
+
+.flower-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.flower-info {
+    padding: 20px;
+    text-align: center;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.category-tag {
+    font-size: 0.75rem;
+    background-color: var(--color-accent);
+    color: white;
+    padding: 4px 12px;
+    border-radius: 20px;
+    display: inline-block;
+    align-self: center;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.btn-view-more {
+    background-color: var(--color-accent);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-family: 'RobotoSlab', serif;
+    font-weight: bold;
+    transition: background 0.3s ease;
+}
+
+.btn-view-more:hover {
+    background-color: #033a25;
+}
+
+.modal {
+    background: rgba(0, 0, 0, 0.8); /* Fondo oscuro para el overlay */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+#modal-content-wrapper {
+    background: white;
+    color: #333;
+    padding: 20px;
+    border-radius: 20px;
+    max-width: 500px;
+    width: 90%;
+    position: relative;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+}
+
+#modal-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centra los elementos hijos (imagen, h2, div.modal-info) horizontalmente */
+    text-align: center; /* Centra el texto dentro de los elementos hijos */
+}
+
+.modal-image {
+    display: block;
+    margin: 0 auto 20px auto; /* Centra la imagen y da espacio abajo */
+    max-width: 280px; /* Tamaño mediano */
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.btn-close {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: none;
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+    color: #888;
+    line-height: 1;
+}
+
+.modal-info {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.hero-section {
+    text-align: center;
+    padding: 60px 20px;
+}
+
+.hero-section h1, 
+.hero-section p {
+    animation: fadeInCard 0.8s ease-out;
+}
+
+.video-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 40px 20px;
+    gap: 20px;
+}
+
+.video-section h2,
+.video-responsive-wrapper {
+    animation: fadeInCard 0.8s ease-out;
+}
+
+.emotion-group {
+    padding: 20px;
+    margin-bottom: 40px;
+}
+
+.emotion-group h2 {
+    color: white;
+    margin-bottom: 20px;
+    border-bottom: 2px solid var(--color-accent);
+    padding-bottom: 10px;
+    animation: fadeInCard 0.8s ease-out;
+}
+
+.video-section video {
+    max-width: 100%; /* Asegura que el video no se desborde */
+}
+
+.filters {
+    text-align: center;
+    padding: 40px 20px;
+    color: white;
+}
+
+.filter-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap; /* Permite que los botones se acomoden en varias filas en móviles */
+    margin-top: 20px;
+}
+
+.filter-buttons button {
+    background-color: var(--color-accent);
+    color: white;
+    border: 1px solid white;
+    padding: 10px 25px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-family: 'RobotoSlab', serif;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.filter-buttons button:hover {
+    background-color: white;
+    color: var(--color-accent);
+    transform: translateY(-3px);
+}
+
+/* Animación de entrada para las tarjetas */
+@keyframes fadeInCard {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+}
+
+.search-container {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+}
+
+#emotion-search {
+    width: 80%;
+    max-width: 500px;
+    padding: 12px 25px;
+    border-radius: 30px;
+    border: 2px solid white;
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    font-family: 'RobotoSlab', serif;
+    font-size: 1rem;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+#emotion-search::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+#emotion-search:focus {
+    background: rgba(255, 255, 255, 0.2);
+    border-color: var(--color-accent);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+}
+
+/* --- MEDIA QUERIES PARA DISPOSITIVOS MÓVILES --- */
+@media (max-width: 768px) {
+    .logo-image {
+        height: 80px; /* Logo más pequeño en móviles */
+    }
+
+    .nav-list {
+        gap: 15px; /* Reducimos el espacio entre enlaces */
+        flex-wrap: wrap; /* Si no caben, bajan a la siguiente línea */
+        justify-content: center;
+    }
+
+    .hero-section h1 {
+        font-size: 1.8rem; /* Título más acorde al tamaño de pantalla */
+    }
+
+    .video-section video {
+        width: 95% !important; /* El video ocupa casi todo el ancho en celulares */
+    }
+
+    .filter-buttons {
+        gap: 10px;
+    }
+
+    .filter-buttons button {
+        padding: 8px 15px;
+        font-size: 0.9rem;
+    }
+
+    .footer-container {
+        text-align: center;
+    }
+}
+
+/* --- Estilos para la página de Contacto --- */
+.contact-form-section {
+    padding: 40px 20px;
+    max-width: 700px;
+    margin: 40px auto;
+    background: rgba(255, 255, 255, 0.95); /* Fondo claro para el formulario */
+    border-radius: 20px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    color: #333; /* Texto oscuro para contraste */
+    animation: fadeInCard 0.8s ease-out;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    font-family: 'RobotoSlab', serif;
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: var(--color-accent); /* Color de acento para las etiquetas */
+    font-size: 1.1rem;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group textarea {
+    padding: 12px 15px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-family: 'RobotoSlab', serif;
+    font-size: 1rem;
+    color: #333;
+    background-color: #f9f9f9;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-group input[type="text"]:focus,
+.form-group input[type="email"]:focus,
+.form-group textarea:focus {
+    border-color: var(--color-accent);
+    box-shadow: 0 0 8px rgba(14, 65, 47, 0.2); /* Sombra suave con color de acento */
+    outline: none;
+}
+
+.btn-submit {
+    background-color: var(--color-accent);
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-family: 'RobotoSlab', serif;
+    font-weight: bold;
+    font-size: 1.1rem;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    align-self: center; /* Centra el botón */
+}
+
+.btn-submit:hover {
+    background-color: #033a25;
+    transform: translateY(-3px);
+}
+
+/* Media Queries para el formulario en móviles */
+@media (max-width: 600px) {
+    .contact-form-section {
+        margin: 20px 10px;
+        padding: 20px;
+    }
+
+    .form-group label {
+        font-size: 1rem;
+    }
+
+    .form-group input[type="text"],
+    .form-group input[type="email"],
+    .form-group textarea {
+        padding: 10px 12px;
+        font-size: 0.9rem;
+    }
+
+    .btn-submit {
+        padding: 12px 25px;
+        font-size: 1rem;
+    }
+}
+
+.empty-message {
+    display: none;
+    text-align: center;
+    padding: 40px;
+    font-size: 1.2rem;
+    color: rgba(255, 255, 255, 0.9);
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    margin: 20px auto;
+    max-width: 600px;
+}
