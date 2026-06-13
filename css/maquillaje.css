@@ -35,7 +35,7 @@ main {
     flex: 1;
 }
 
-.footer-container {
+.contenedor-pie {
     display: flex;
     flex-direction: column; /* Apila el texto y los iconos verticalmente */
     justify-content: center; /* Centra el contenido verticalmente */
@@ -47,23 +47,23 @@ main {
     gap: 15px; /* Espacio entre el texto y los iconos */
 }
 
-.social-icons-container {
+.contenedor-iconos-sociales {
     display: flex;
     gap: 15px; /* Espacio entre los iconos de redes sociales */
 }
 
-.social-icon {
+.icono-social {
     width: 30px; /* Tamaño de los iconos */
     height: 30px;
     object-fit: contain; /* Asegura que la imagen se ajuste sin distorsionarse */
     transition: transform 0.3s ease; /* Suaviza la animación */
 }
 
-.social-icon:hover {
+.icono-social:hover {
     transform: scale(1.2); /* Agranda el icono un 20% al pasar el ratón */
 }
 
-.header-main {
+.cabecera-principal {
     display: flex;
     flex-direction: column; /* Apila el logo sobre el menú de navegación */
     justify-content: center;
@@ -73,13 +73,14 @@ main {
     gap: 15px; /* Espacio entre el logo y los enlaces */
 }
 
-.nav-container {
+.contenedor-navegacion {
     width: 100%;
     display: flex;
     justify-content: center; /* Centra la lista de enlaces dentro de su contenedor */
 }
 
-.logo-image {
+
+.imagen-logo {
     height: 120px; /* Ajusta este valor según qué tan pequeño lo desees */
     width: auto;
     display: block;
@@ -89,24 +90,24 @@ main {
     border-radius: 20px; /* Redondea las esquinas del borde */
 }
 
-.nav-list {
+.lista-navegacion {
     display: flex;
     list-style: none;
     gap: 35px;
 }   
 
-.nav-list a {
+.lista-navegacion a {
     color: white;
     text-decoration: none;
     font-weight: bold;
     transition: color 0.3s ease; /* Suaviza la transición del color */
 }
 
-.nav-list a:hover {
+.lista-navegacion a:hover {
     color: #f0f0f0; /* Un tono crema claro para el efecto hover */
 }
 
-.catalog-grid {
+.rejilla-catalogo {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     gap: 20px;
@@ -115,7 +116,7 @@ main {
     margin: 0 auto;
 }
 
-.flower-card {
+.tarjeta-flor {
     background: rgba(255, 255, 255, 0.95);
     border-radius: 15px;
     overflow: hidden;
@@ -125,25 +126,25 @@ main {
     display: flex;
     position: relative; /* Permite que el z-index funcione correctamente al elevarse */
     flex-direction: column;
-    animation: fadeInCard 0.6s ease-out; /* Quitamos forwards */
+    animation: aparecerTarjeta 0.6s ease-out; /* Quitamos forwards */
     opacity: 1;
     transform: translateY(0);
 }
 
-.flower-card:hover {
+.tarjeta-flor:hover {
     transform: translateY(-15px) scale(1.02); /* Se eleva 15px y crece un 2% */
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.45); /* Sombra más profunda para simular altura */
     z-index: 10; /* Asegura que la tarjeta no quede detrás de otras al subir */
     cursor: pointer;
 }
 
-.flower-card img {
+.tarjeta-flor img {
     width: 100%;
     height: 200px;
     object-fit: cover;
 }
 
-.flower-info {
+.info-flor {
     padding: 20px;
     text-align: center;
     flex-grow: 1;
@@ -153,7 +154,7 @@ main {
     gap: 10px;
 }
 
-.category-tag {
+.etiqueta-categoria {
     font-size: 0.75rem;
     background-color: var(--color-accent);
     color: white;
@@ -165,7 +166,7 @@ main {
     letter-spacing: 1px;
 }
 
-.btn-view-more {
+.btn-ver-mas {
     background-color: var(--color-accent);
     color: white;
     border: none;
@@ -177,7 +178,7 @@ main {
     transition: background 0.3s ease;
 }
 
-.btn-view-more:hover {
+.btn-ver-mas:hover {
     background-color: #033a25;
 }
 
@@ -194,7 +195,7 @@ main {
     z-index: 1000;
 }
 
-#modal-content-wrapper {
+#envoltura-contenido-modal {
     background: white;
     color: #333;
     padding: 20px;
@@ -205,14 +206,14 @@ main {
     box-shadow: 0 10px 40px rgba(0,0,0,0.5);
 }
 
-#modal-content {
+#contenido-modal {
     display: flex;
     flex-direction: column;
     align-items: center; /* Centra los elementos hijos (imagen, h2, div.modal-info) horizontalmente */
     text-align: center; /* Centra el texto dentro de los elementos hijos */
 }
 
-.modal-image {
+.imagen-modal {
     display: block;
     margin: 0 auto 20px auto; /* Centra la imagen y da espacio abajo */
     max-width: 280px; /* Tamaño mediano */
@@ -222,7 +223,7 @@ main {
     box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
 
-.btn-close {
+.btn-cerrar {
     position: absolute;
     top: 15px;
     right: 15px;
@@ -234,22 +235,22 @@ main {
     line-height: 1;
 }
 
-.modal-info {
+.info-modal {
     text-align: center;
     margin-top: 20px;
 }
 
-.hero-section {
+.seccion-hero {
     text-align: center;
     padding: 60px 20px;
 }
 
-.hero-section h1, 
-.hero-section p {
-    animation: fadeInCard 0.8s ease-out;
+.seccion-hero h1, 
+.seccion-hero p {
+    animation: aparecerTarjeta 0.8s ease-out;
 }
 
-.video-section {
+.seccion-video {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -258,35 +259,35 @@ main {
     gap: 20px;
 }
 
-.video-section h2,
-.video-responsive-wrapper {
-    animation: fadeInCard 0.8s ease-out;
+.seccion-video h2,
+.envoltura-video-responsivo {
+    animation: aparecerTarjeta 0.8s ease-out;
 }
 
-.emotion-group {
+.grupo-emocion {
     padding: 20px;
     margin-bottom: 40px;
 }
 
-.emotion-group h2 {
+.grupo-emocion h2 {
     color: white;
     margin-bottom: 20px;
     border-bottom: 2px solid var(--color-accent);
     padding-bottom: 10px;
-    animation: fadeInCard 0.8s ease-out;
+    animation: aparecerTarjeta 0.8s ease-out;
 }
 
-.video-section video {
+.seccion-video video {
     max-width: 100%; /* Asegura que el video no se desborde */
 }
 
-.filters {
+.filtros {
     text-align: center;
     padding: 40px 20px;
     color: white;
 }
 
-.filter-buttons {
+.botones-filtro {
     display: flex;
     justify-content: center;
     gap: 15px;
@@ -294,7 +295,7 @@ main {
     margin-top: 20px;
 }
 
-.filter-buttons button {
+.botones-filtro button {
     background-color: var(--color-accent);
     color: white;
     border: 1px solid white;
@@ -306,27 +307,27 @@ main {
     transition: all 0.3s ease;
 }
 
-.filter-buttons button:hover {
+.botones-filtro button:hover {
     background-color: white;
     color: var(--color-accent);
     transform: translateY(-3px);
 }
 
 /* Animación de entrada para las tarjetas */
-@keyframes fadeInCard {
+@keyframes aparecerTarjeta {
     from {
         opacity: 0;
         transform: translateY(20px);
     }
 }
 
-.search-container {
+.contenedor-buscador {
     margin-top: 30px;
     display: flex;
     justify-content: center;
 }
 
-#emotion-search {
+#buscador-emociones {
     width: 80%;
     max-width: 500px;
     padding: 12px 25px;
@@ -340,11 +341,11 @@ main {
     transition: all 0.3s ease;
 }
 
-#emotion-search::placeholder {
+#buscador-emociones::placeholder {
     color: rgba(255, 255, 255, 0.7);
 }
 
-#emotion-search:focus {
+#buscador-emociones:focus {
     background: rgba(255, 255, 255, 0.2);
     border-color: var(--color-accent);
     box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
@@ -352,40 +353,40 @@ main {
 
 /* --- MEDIA QUERIES PARA DISPOSITIVOS MÓVILES --- */
 @media (max-width: 768px) {
-    .logo-image {
+    .imagen-logo {
         height: 80px; /* Logo más pequeño en móviles */
     }
 
-    .nav-list {
+    .lista-navegacion {
         gap: 15px; /* Reducimos el espacio entre enlaces */
         flex-wrap: wrap; /* Si no caben, bajan a la siguiente línea */
         justify-content: center;
     }
 
-    .hero-section h1 {
+    .seccion-hero h1 {
         font-size: 1.8rem; /* Título más acorde al tamaño de pantalla */
     }
 
-    .video-section video {
+    .seccion-video video {
         width: 95% !important; /* El video ocupa casi todo el ancho en celulares */
     }
 
-    .filter-buttons {
+    .botones-filtro {
         gap: 10px;
     }
 
-    .filter-buttons button {
+    .botones-filtro button {
         padding: 8px 15px;
         font-size: 0.9rem;
     }
 
-    .footer-container {
+    .contenedor-pie {
         text-align: center;
     }
 }
 
 /* --- Estilos para la página de Contacto --- */
-.contact-form-section {
+.seccion-formulario-contacto {
     padding: 40px 20px;
     max-width: 700px;
     margin: 40px auto;
@@ -393,21 +394,21 @@ main {
     border-radius: 20px;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
     color: #333; /* Texto oscuro para contraste */
-    animation: fadeInCard 0.8s ease-out;
+    animation: aparecerTarjeta 0.8s ease-out;
 }
 
-.contact-form {
+.formulario-contacto {
     display: flex;
     flex-direction: column;
     gap: 20px;
 }
 
-.form-group {
+.grupo-formulario {
     display: flex;
     flex-direction: column;
 }
 
-.form-group label {
+.grupo-formulario label {
     font-family: 'RobotoSlab', serif;
     font-weight: bold;
     margin-bottom: 8px;
@@ -415,9 +416,9 @@ main {
     font-size: 1.1rem;
 }
 
-.form-group input[type="text"],
-.form-group input[type="email"],
-.form-group textarea {
+.grupo-formulario input[type="text"],
+.grupo-formulario input[type="email"],
+.grupo-formulario textarea {
     padding: 12px 15px;
     border: 1px solid #ccc;
     border-radius: 8px;
@@ -428,15 +429,15 @@ main {
     transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-.form-group input[type="text"]:focus,
-.form-group input[type="email"]:focus,
-.form-group textarea:focus {
+.grupo-formulario input[type="text"]:focus,
+.grupo-formulario input[type="email"]:focus,
+.grupo-formulario textarea:focus {
     border-color: var(--color-accent);
     box-shadow: 0 0 8px rgba(14, 65, 47, 0.2); /* Sombra suave con color de acento */
     outline: none;
 }
 
-.btn-submit {
+.btn-enviar {
     background-color: var(--color-accent);
     color: white;
     border: none;
@@ -450,36 +451,36 @@ main {
     align-self: center; /* Centra el botón */
 }
 
-.btn-submit:hover {
+.btn-enviar:hover {
     background-color: #033a25;
     transform: translateY(-3px);
 }
 
 /* Media Queries para el formulario en móviles */
 @media (max-width: 600px) {
-    .contact-form-section {
+    .seccion-formulario-contacto {
         margin: 20px 10px;
         padding: 20px;
     }
 
-    .form-group label {
+    .grupo-formulario label {
         font-size: 1rem;
     }
 
-    .form-group input[type="text"],
-    .form-group input[type="email"],
-    .form-group textarea {
+    .grupo-formulario input[type="text"],
+    .grupo-formulario input[type="email"],
+    .grupo-formulario textarea {
         padding: 10px 12px;
         font-size: 0.9rem;
     }
 
-    .btn-submit {
+    .btn-enviar {
         padding: 12px 25px;
         font-size: 1rem;
     }
 }
 
-.empty-message {
+.mensaje-vacio {
     display: none;
     text-align: center;
     padding: 40px;

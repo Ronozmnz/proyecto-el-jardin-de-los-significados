@@ -1,5 +1,5 @@
 // Arreglo centralizado de 16 objetos adaptado a tus archivos locales
-const flowersDB = [
+const dbFlores = [
     // --- CATEGORÍA: ROSAS ---
     {
         id: 1,
@@ -140,14 +140,14 @@ const flowersDB = [
 /**
  * Helper para generar el HTML de una tarjeta de flor.
  */
-function createCardHTML(flower) {
+function crearHtmlTarjeta(flor) {
     return `
-        <div class="flower-card">
-            <img src="${flower.img}" alt="${flower.nombre}">
-            <div class="flower-info">
-                <h3>${flower.nombre}</h3>
-                <p class="category-tag">${flower.categoria}</p>
-                <button class="btn-view-more" onclick="showDetail(${flower.id})">Ver más</button>
+        <div class="tarjeta-flor">
+            <img src="${flor.img}" alt="${flor.nombre}">
+            <div class="info-flor">
+                <h3>${flor.nombre}</h3>
+                <p class="etiqueta-categoria">${flor.categoria}</p>
+                <button class="btn-ver-mas" onclick="mostrarDetalle(${flor.id})">Ver más</button>
             </div>
         </div>
     `;
@@ -157,44 +157,44 @@ function createCardHTML(flower) {
  * Renderiza las tarjetas de flores en el contenedor del catálogo.
  * @param {Array} list - Arreglo de objetos de flores a mostrar.
  */
-function renderCatalog(list) {
-    const container = document.getElementById('catalog-container');
-    if (!container) return;
+function renderizarCatalogo(lista) {
+    const contenedor = document.getElementById('contenedor-catalogo');
+    if (!contenedor) return;
 
     // Optimizamos: Generamos todo el string primero y lo inyectamos una sola vez
-    const fullHTML = list.map(flower => createCardHTML(flower)).join('');
-    container.innerHTML = fullHTML;
+    const htmlCompleto = lista.map(flor => crearHtmlTarjeta(flor)).join('');
+    contenedor.innerHTML = htmlCompleto;
 }
 
 /**
- * Filtra el arreglo global flowersDB por categoría.
+ * Filtra el arreglo global dbFlores por categoría.
  * @param {string} category - Nombre de la categoría a filtrar o 'Todas'.
  */
-function filterFlowers(category) {
-    const result = category === 'Todas' 
-        ? flowersDB 
-        : flowersDB.filter(flower => flower.categoria === category);
+function filtrarFlores(categoria) {
+    const resultado = categoria === 'Todas' 
+        ? dbFlores 
+        : dbFlores.filter(flor => flor.categoria === categoria);
     
-    renderCatalog(result);
+    renderizarCatalogo(resultado);
 }
 
 /**
  * Busca una flor por ID y despliega el modal con su información.
  */
-function showDetail(id) {
-    const flower = flowersDB.find(f => f.id === id);
-    if (!flower) return;
+function mostrarDetalle(id) {
+    const flor = dbFlores.find(f => f.id === id);
+    if (!flor) return;
 
-    const modal = document.getElementById('meaning-modal');
-    const content = document.getElementById('modal-content');
+    const modal = document.getElementById('modal-significado');
+    const contenido = document.getElementById('contenido-modal');
 
-    content.innerHTML = `
-        <img src="${flower.img}" alt="${flower.nombre}" class="modal-image">
-        <h2>${flower.nombre}</h2>
-        <div class="modal-info">
-            <p><strong>Descripción:</strong> ${flower.descripcion}</p>
+    contenido.innerHTML = `
+        <img src="${flor.img}" alt="${flor.nombre}" class="imagen-modal">
+        <h2>${flor.nombre}</h2>
+        <div class="info-modal">
+            <p><strong>Descripción:</strong> ${flor.descripcion}</p>
             <br>
-            <p class="significado-texto"><strong>✨ Significado:</strong> ${flower.significado}</p>
+            <p class="significado-texto"><strong>✨ Significado:</strong> ${flor.significado}</p>
         </div>
     `;
 
@@ -204,54 +204,54 @@ function showDetail(id) {
 /**
  * Renderiza los resultados del diccionario basados en una búsqueda libre.
  */
-function renderDictionary() {
-    const search = document.getElementById('emotion-search');
-    const query = search ? search.value.toLowerCase() : "";
-    const container = document.getElementById('dictionary-container');
-    const emptyMessage = document.getElementById('empty-search-message');
+function renderizarDiccionario() {
+    const buscador = document.getElementById('buscador-emociones');
+    const consulta = buscador ? buscador.value.toLowerCase() : "";
+    const contenedor = document.getElementById('contenedor-diccionario');
+    const mensajeVacio = document.getElementById('mensaje-busqueda-vacia');
 
-    if (!container) return;
+    if (!contenedor) return;
 
     // Filtramos toda la base de datos comparando con el nombre y el significado
-    const filteredFlowers = flowersDB.filter(flower => 
-        flower.nombre.toLowerCase().includes(query) || 
-        flower.significado.toLowerCase().includes(query)
+    const floresFiltradas = dbFlores.filter(flor => 
+        flor.nombre.toLowerCase().includes(consulta) || 
+        flor.significado.toLowerCase().includes(consulta)
     );
 
-    if (filteredFlowers.length > 0) {
+    if (floresFiltradas.length > 0) {
         // Ocultar mensaje de error y mostrar flores
-        if (emptyMessage) emptyMessage.style.display = 'none';
-        container.innerHTML = filteredFlowers.map(flower => createCardHTML(flower)).join('');
+        if (mensajeVacio) mensajeVacio.style.display = 'none';
+        contenedor.innerHTML = floresFiltradas.map(flor => crearHtmlTarjeta(flor)).join('');
     } else {
         // Mostrar mensaje de error si no hay nada
-        container.innerHTML = '';
-        if (emptyMessage) emptyMessage.style.display = 'block';
+        contenedor.innerHTML = '';
+        if (mensajeVacio) mensajeVacio.style.display = 'block';
     }
 }
 
 /**
  * Cierra el modal de detalles.
  */
-function closeModal() {
-    const modal = document.getElementById('meaning-modal');
+function cerrarModal() {
+    const modal = document.getElementById('modal-significado');
     if (modal) modal.style.display = 'none';
 }
 
 // Inicialización al cargar el DOM
 document.addEventListener('DOMContentLoaded', () => {
     // Si estamos en la página del catálogo
-    if (document.getElementById('catalog-container')) {
-        renderCatalog(flowersDB);
+    if (document.getElementById('contenedor-catalogo')) {
+        renderizarCatalogo(dbFlores);
     }
     // Si estamos en la página del diccionario (detectando el nuevo contenedor)
-    if (document.getElementById('dictionary-container')) {
-        renderDictionary();
+    if (document.getElementById('contenedor-diccionario')) {
+        renderizarDiccionario();
     }
 
     // Validación en tiempo real para campos de solo letras (Nombre)
-    const onlyLettersInputs = document.querySelectorAll('#nombre');
-    onlyLettersInputs.forEach(input => {
-        input.addEventListener('input', (e) => {
+    const entradasSoloLetras = document.querySelectorAll('#nombre');
+    entradasSoloLetras.forEach(entrada => {
+        entrada.addEventListener('input', (e) => {
             // Reemplaza cualquier dígito numérico por un string vacío
             e.target.value = e.target.value.replace(/[0-9]/g, '');
         });

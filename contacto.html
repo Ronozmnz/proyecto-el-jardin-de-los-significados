@@ -10,55 +10,55 @@
 </head>
 <body>
 
-    <header class="header-main">
-        <div class="logo-container">
-            <img src="./img/icono-paginaweb.jpg" alt="Logo" class="logo-image">
+    <header class="cabecera-principal">
+        <div class="contenedor-logo">
+            <img src="./img/icono-paginaweb.jpg" alt="Logo" class="imagen-logo">
         </div>
-        <nav class="nav-container">
-            <ul class="nav-list">
+        <nav class="contenedor-navegacion">
+            <ul class="lista-navegacion">
                 <li><a href="index.html">Inicio</a></li>
                 <li><a href="catalogo.html">Catálogo</a></li>
-                <li><a href="diccionario.html" class="active">Diccionario</a></li>
-                <li><a href="contacto.html">Contacto</a></li>
+                <li><a href="diccionario.html">Diccionario</a></li>
+                <li><a href="contacto.html" class="activo">Contacto</a></li>
             </ul>
         </nav>
     </header>
 
     <main>
-        <section class="hero-section">
+        <section class="seccion-hero">
             <h1>Contáctanos</h1>
             <p>¿Tienes alguna pregunta, sugerencia o simplemente quieres compartir tu amor por las flores? ¡Estamos aquí para escucharte!</p>
         </section>
 
-        <section class="contact-form-section">
-            <form action="#" method="POST" class="contact-form">
-                <div class="form-group">
+        <section class="seccion-formulario-contacto">
+            <form action="#" method="POST" class="formulario-contacto">
+                <div class="grupo-formulario">
                     <label for="nombre">Nombre Completo:</label>
                     <input type="text" id="nombre" name="nombre" required pattern="^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$" title="Solo se permiten letras y espacios">
                 </div>
-                <div class="form-group">
+                <div class="grupo-formulario">
                     <label for="email">Correo electrónico:</label>
                     <input type="email" id="email" name="email" required>
                 </div>
-                <div class="form-group">
+                <div class="grupo-formulario">
                     <label for="ubicacion">¿Desde dónde nos visitas? (Ciudad/País):</label>
                     <input type="text" id="ubicacion" name="ubicacion" placeholder="Ej: Caracas, Venezuela" required>
                 </div>
-                <div class="form-group">
+                <div class="grupo-formulario">
                     <label for="mensaje">Mensaje:</label>
                     <textarea id="mensaje" name="mensaje" rows="6" required></textarea>
                 </div>
-                <button type="submit" class="btn-submit">Enviar Mensaje</button>
+                <button type="submit" class="btn-enviar">Enviar Mensaje</button>
             </form>
         </section>
     </main>
 
-    <footer class="footer-container">
+    <footer class="contenedor-pie">
         <p>&copy; 2026 El Jardín de los Significados - Proyecto Académico sobre el lenguaje de las flores.</p>
-        <div class="social-icons-container">
-            <a href="https://www.facebook.com" target="_blank" aria-label="Visita nuestra página de Facebook"><img src="img/footer/facebook.png" alt="Facebook" class="social-icon"></a>
-            <a href="https://www.instagram.com" target="_blank" aria-label="Síguenos en Instagram"><img src="img/footer/instagram.png" alt="Instagram" class="social-icon"></a>
-            <a href="https://www.youtube.com" target="_blank" aria-label="Síguenos en Youtube"><img src="img/footer/youtube.png" alt="Youtube" class="social-icon"></a>
+        <div class="contenedor-iconos-sociales">
+            <a href="https://www.facebook.com" target="_blank" aria-label="Visita nuestra página de Facebook"><img src="img/footer/facebook.png" alt="Facebook" class="icono-social"></a>
+            <a href="https://www.instagram.com" target="_blank" aria-label="Síguenos en Instagram"><img src="img/footer/instagram.png" alt="Instagram" class="icono-social"></a>
+            <a href="https://www.youtube.com" target="_blank" aria-label="Síguenos en Youtube"><img src="img/footer/youtube.png" alt="Youtube" class="icono-social"></a>
         </div>
     </footer>
 

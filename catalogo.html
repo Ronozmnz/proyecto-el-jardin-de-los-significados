@@ -9,14 +9,14 @@
 </head>
 <body>
 
-    <header class="header-main">
-        <div class="logo-container">
-            <img src="./img/icono-paginaweb.jpg" alt="Logo" class="logo-image">
+    <header class="cabecera-principal">
+        <div class="contenedor-logo">
+            <img src="./img/icono-paginaweb.jpg" alt="Logo" class="imagen-logo">
         </div>
-        <nav class="nav-container">
-            <ul class="nav-list">
+        <nav class="contenedor-navegacion">
+            <ul class="lista-navegacion">
                 <li><a href="index.html">Inicio</a></li>
-                <li><a href="catalogo.html" class="active">Catálogo</a></li>
+                <li><a href="catalogo.html" class="activo">Catálogo</a></li>
                 <li><a href="diccionario.html">Diccionario</a></li>
                 <li><a href="contacto.html">Contacto</a></li>
             </ul>
@@ -24,36 +24,36 @@
     </header>
 
     <main>
-        <section class="filters">
+        <section class="filtros">
             <h2>Nuestras Flores</h2>
-            <div class="filter-buttons">
-                <button onclick="filterFlowers('Todas')">Todas</button>
-                <button onclick="filterFlowers('Rosas')">Rosas</button>
-                <button onclick="filterFlowers('Girasoles')">Girasoles</button>
-                <button onclick="filterFlowers('Orquídeas')">Orquídeas</button>
-                <button onclick="filterFlowers('Exóticas')">Exóticas</button>
+            <div class="botones-filtro">
+                <button onclick="filtrarFlores('Todas')">Todas</button>
+                <button onclick="filtrarFlores('Rosas')">Rosas</button>
+                <button onclick="filtrarFlores('Girasoles')">Girasoles</button>
+                <button onclick="filtrarFlores('Orquídeas')">Orquídeas</button>
+                <button onclick="filtrarFlores('Exóticas')">Exóticas</button>
             </div>
         </section>
 
-        <section id="catalog-container" class="catalog-grid">
+        <section id="contenedor-catalogo" class="rejilla-catalogo">
         </section>
     </main>
 
-    <div id="meaning-modal" class="modal" style="display:none;">
-        <div id="modal-content-wrapper">
-            <button class="btn-close" onclick="closeModal()">×</button>
-            <div id="modal-content"></div>
+    <div id="modal-significado" class="modal" style="display:none;">
+        <div id="envoltura-contenido-modal">
+            <button class="btn-cerrar" onclick="cerrarModal()">×</button>
+            <div id="contenido-modal"></div>
         </div>
     </div>
 
     <script src="js/logica.js"></script>
 
-    <footer class="footer-container">
+    <footer class="contenedor-pie">
         <p>&copy; 2026 El Jardín de los Significados - Proyecto Académico sobre el lenguaje de las flores.</p>
-        <div class="social-icons-container">
-            <a href="https://www.facebook.com" target="_blank" aria-label="Visita nuestra página de Facebook"><img src="img/footer/facebook.png" alt="Facebook" class="social-icon"></a>
-            <a href="https://www.instagram.com" target="_blank" aria-label="Síguenos en Instagram"><img src="img/footer/instagram.png" alt="Instagram" class="social-icon"></a>
-            <a href="https://www.youtube.com" target="_blank" aria-label="Síguenos en Youtube"><img src="img/footer/youtube.png" alt="Youtube" class="social-icon"></a>
+        <div class="contenedor-iconos-sociales">
+            <a href="https://www.facebook.com" target="_blank" aria-label="Visita nuestra página de Facebook"><img src="img/footer/facebook.png" alt="Facebook" class="icono-social"></a>
+            <a href="https://www.instagram.com" target="_blank" aria-label="Síguenos en Instagram"><img src="img/footer/instagram.png" alt="Instagram" class="icono-social"></a>
+            <a href="https://www.youtube.com" target="_blank" aria-label="Síguenos en Youtube"><img src="img/footer/youtube.png" alt="Youtube" class="icono-social"></a>
         </div>
     </footer>
 
