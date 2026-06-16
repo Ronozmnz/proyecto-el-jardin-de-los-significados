@@ -1,39 +1,53 @@
 @font-face {
     font-family: 'RobotoSlab';
     src: url('../assets/fonts/RobotoSlab-VariableFont_wght.ttf') format('truetype');
-    font-weight: 100 900; /* Define el rango de pesos disponibles en la fuente variable */
+    font-weight: normal; 
     font-style: normal;
 }
 
-:root {
-    --color-fondo: #fdfbf7;
-    --color-texto: #333;
-    --color-accent: #9c4d03; /* Tono naturaleza */
-    --glass: rgba(255, 255, 255, 0.2);
+@font-face {
+    font-family: 'CroissantOne';
+    src: url('../assets/fonts/CroissantOne-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
 }
 
-* {
+:root { /* Variables de color para mantener una paleta coherente en todo el sitio */
+    --color-fondo: #fdfbf7;
+    --color-texto: #333;
+    --color-accent: #9c4d03; 
+    --glass: rgba(255, 255, 255, 0.2); /* Un fondo translúcido para elementos como el buscador */
+}
+
+
+* { /* Reseteo básico para eliminar márgenes y padding predeterminados */
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
 body {
-    font-family: 'RobotoSlab', serif;
+    font-family: 'RobotoSlab', serif; /* Fuente principal para el cuerpo del sitio */
     background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../img/fondo-general-web.jpg');
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-    line-height: 1.6;
+    background-size: cover; /* Asegura que la imagen cubra todo el fondo sin distorsionarse */
+    background-position: center; /* Centra la imagen */
+    background-attachment: fixed; /* Hace que la imagen de fondo se quede fija al hacer scroll */
+    line-height: 1.6; /* Mejora la legibilidad del texto */
     color: white; /* Se ajusta el color del texto para que contraste con el fondo */
-    min-height: 100vh;
+    min-height: 100vh; /* Asegura que el cuerpo ocupe al menos toda la altura de la ventana */
     display: flex;
     flex-direction: column;
+}
+
+p {
+    font-family: 'CroissantOne', serif;
+    font-size: 20px; /* Tamaño de letra*/
 }
 
 main {
     flex: 1;
 }
+
 
 .contenedor-pie {
     display: flex;
@@ -41,10 +55,30 @@ main {
     justify-content: center; /* Centra el contenido verticalmente */
     align-items: center; /* Centra el contenido horizontalmente */
     padding: 20px;
-    background-color: var(--color-accent);
-    color: white;
+    background-color: var(--color-accent); /* Fondo de color de acento para el pie de página */
+    color: white; /* Color de texto blanco para contraste */
     margin-top: 40px;
     gap: 15px; /* Espacio entre el texto y los iconos */
+}
+
+.boton-arriba {
+    display: inline-block;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    margin: 20px 0 0;
+    padding: 10px 20px;
+    border-radius: 999px;
+    background-color: white;
+    color: var(--color-accent);
+    text-decoration: none;
+    font-weight: bold;
+    transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.boton-arriba:hover {
+    transform: translate(-50%, -4px);
+    background-color: #f1e7d3;
 }
 
 .contenedor-iconos-sociales {
@@ -74,7 +108,7 @@ main {
 }
 
 .contenedor-navegacion {
-    width: 100%;
+    width: 100%; 
     display: flex;
     justify-content: center; /* Centra la lista de enlaces dentro de su contenedor */
 }
@@ -83,7 +117,7 @@ main {
 .imagen-logo {
     height: 120px; /* Ajusta este valor según qué tan pequeño lo desees */
     width: auto;
-    display: block;
+    display: block; /* Elimina el espacio debajo de la imagen */
     border: 1px solid white; /* Borde de color claro */
     background-color: rgb(255, 255, 255); /* Fondo blanco para resaltar la imagen */
     padding: 5px; /* Espacio entre la imagen y el borde */
@@ -108,7 +142,7 @@ main {
 }
 
 .rejilla-catalogo {
-    display: grid;
+    display: grid; /* Utilizamos CSS Grid para crear una rejilla flexible y responsiva */
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     gap: 20px;
     padding: 20px;
@@ -179,12 +213,14 @@ main {
 }
 
 .btn-ver-mas:hover {
-    background-color: #033a25;
+    background-color: var(--color-fondo);
+    color: var(--color-accent);
 }
+
 
 .modal {
     background: rgba(0, 0, 0, 0.8); /* Fondo oscuro para el overlay */
-    position: fixed;
+    position: fixed; 
     top: 0;
     left: 0;
     width: 100%;
@@ -194,6 +230,7 @@ main {
     align-items: center;
     z-index: 1000;
 }
+
 
 #envoltura-contenido-modal {
     background: white;
@@ -333,7 +370,7 @@ main {
     padding: 12px 25px;
     border-radius: 30px;
     border: 2px solid white;
-    background: rgba(255, 255, 255, 0.1);
+    background: var(--glass);
     color: white;
     font-family: 'RobotoSlab', serif;
     font-size: 1rem;
@@ -346,7 +383,7 @@ main {
 }
 
 #buscador-emociones:focus {
-    background: rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.3); /* Un poco más claro al enfocar */
     border-color: var(--color-accent);
     box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
 }
@@ -452,7 +489,8 @@ main {
 }
 
 .btn-enviar:hover {
-    background-color: #033a25;
+    background-color: var(--color-fondo);
+    color: var(--color-accent);
     transform: translateY(-3px);
 }
 

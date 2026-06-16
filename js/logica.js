@@ -1,4 +1,4 @@
-// Arreglo centralizado de 16 objetos adaptado a tus archivos locales
+// Arreglo centralizado de 16 objetos 
 const dbFlores = [
     // --- CATEGORÍA: ROSAS ---
     {

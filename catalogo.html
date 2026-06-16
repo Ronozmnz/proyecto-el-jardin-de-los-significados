@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="css/maquillaje.css">
     <script src="js/logica.js" defer></script>
 </head>
-<body>
+<body id="inicioarriba">
 
     <header class="cabecera-principal">
         <div class="contenedor-logo">
@@ -26,7 +26,7 @@
 
     <main>
         <section class="filtros">
-            <h2>Nuestras Flores</h2>
+            <h1>Nuestras Flores</h1>
             <div class="botones-filtro">
                 <button onclick="filtrarFlores('Todas')">Todas</button>
                 <button onclick="filtrarFlores('Rosas')">Rosas</button>
@@ -38,6 +38,7 @@
 
         <section id="contenedor-catalogo" class="rejilla-catalogo">
         </section>
+        <a href="#inicioarriba" class="boton-arriba">Volver arriba</a>
     </main>
 
     <div id="modal-significado" class="modal" style="display:none;">
